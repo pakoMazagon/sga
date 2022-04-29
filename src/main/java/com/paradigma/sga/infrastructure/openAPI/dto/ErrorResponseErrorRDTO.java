@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Payload error message
  */
 @ApiModel(description = "Payload error message")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-29T10:04:37.636949+02:00[Europe/Paris]")@lombok.Builder
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-29T12:22:08.005605900+02:00[Europe/Paris]")@lombok.Builder
 									@lombok.NoArgsConstructor @lombok.AllArgsConstructor
 
 public class ErrorResponseErrorRDTO   {
