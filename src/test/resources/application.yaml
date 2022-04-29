@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: POC for Inditex
+  datasource:
+    url:  jdbc:tc:mysql:8.0:///db_inditext?createDatabaseIfNotExist=true&serverTimezone=Europe/Madrid&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: admin
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform:  org.hibernate.dialect.MySQL8Dialect
+#    hibernate:
+#      ddl-auto: create
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml

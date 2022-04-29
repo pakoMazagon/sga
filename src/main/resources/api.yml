@@ -1,0 +1,116 @@
+
+openapi: 3.0.0
+info:
+  title: ms-sga
+  description: POC for Inditex
+  version: 0.0.1
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
+#servers:
+#  - url: 'https://localhost:8080/prices/v1'
+#  - url: 'http://localhost:8080/prices/v1'
+paths:
+  /prices:
+    get:
+      security:
+        - x-jwt-assertion: [ ]
+      tags:
+        - prices
+      summary: Get information about the price of a product in any enterprise of Inditex
+      description: Get information about the price of a product in any enterprise of Inditex in any date
+      operationId: findPriceProductInSeason
+      parameters:
+        - name: appDate
+          in: query
+          description: date for apply the rate of the product
+          required: true
+          schema:
+            type: string
+            format: date-time
+            example: "2021-05-09T19:10:00Z"
+        - name: productId
+          in: query
+          description: Product identifier
+          required: true
+          schema:
+            type: long
+        - name: brandId
+          in: query
+          description: Brand identifier
+          required: true
+          schema:
+            type: long
+      responses:
+        200:
+          $ref: '#/components/responses/priceProduct'
+        400:
+          $ref: '#/components/responses/bad_request'
+        500:
+          $ref: '#/components/responses/internal_error'
+
+components:
+  responses:
+    priceProduct:
+      description: Product with price in a date selected
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PriceProduct'             
+    void_rs:
+      description: Empty response without content
+    bad_request:
+      description: Error in the request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+    internal_error:
+      description: Error in nthe server
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+  schemas:
+    PriceProduct:
+      type: object
+      properties:
+        productId:
+          type: long
+        brandId:
+          type: long
+        brandName:
+          type: string
+        rate:
+          type: integer
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        price:
+          type: number
+          format: double
+    error_response:
+      type: object
+      properties:
+        error:
+          required:
+            - message
+            - code
+          type: object
+          description: Payload error message
+          properties:
+            message:
+              type: string
+              description: error cause.
+            code:
+              type: integer
+              description: Response code of error
+      description: Error in the API        
+  securitySchemes:
+    x-jwt-assertion:
+      type: apiKey
+      in: header
+      name: x-jwt-assertion

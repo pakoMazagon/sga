@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="frc"
+		id="0003">
+
+		<comment>Create Prices table</comment>
+
+		<createTable tableName="prices"
+			schemaName="db_inditext">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true"
+					primaryKeyName="PK_PRICES" />
+			</column>
+
+			<column name="brand_id" type="bigint">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="start_date" type="datetime">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="end_date" type="datetime">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="price_list" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="product_id" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="priority" type="int">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="price" type="double">
+				<constraints nullable="false" />
+			</column>
+			
+			<column name="curr" type="varchar(4)">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+		
+		<addForeignKeyConstraint
+				baseTableSchemaName="db_inditext" baseTableName="prices"
+				baseColumnNames="brand_id" referencedTableSchemaName="db_inditext"
+				referencedTableName="brands" referencedColumnNames="id"
+				constraintName="PK_PRICES" deferrable="false"
+				initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" />
+	</changeSet>
+	
+
+
+</databaseChangeLog>

@@ -1,0 +1,5 @@
+src/main/java/com/paradigma/sga/infrastructure/openAPI/controller/ApiUtil.java
+src/main/java/com/paradigma/sga/infrastructure/openAPI/controller/PricesApi.java
+src/main/java/com/paradigma/sga/infrastructure/openAPI/dto/ErrorResponseErrorRDTO.java
+src/main/java/com/paradigma/sga/infrastructure/openAPI/dto/ErrorResponseRDTO.java
+src/main/java/com/paradigma/sga/infrastructure/openAPI/dto/PriceProductRDTO.java
