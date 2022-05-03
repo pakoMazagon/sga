@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * PriceProductRDTO
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-29T12:22:08.005605900+02:00[Europe/Paris]")@lombok.Builder
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-03T07:56:27.244858800+02:00[Europe/Paris]")@lombok.Builder
 									@lombok.NoArgsConstructor @lombok.AllArgsConstructor
 
 public class PriceProductRDTO   {
