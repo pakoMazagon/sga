@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RatePriceServiceImpl implements RatePricesService {
+public class RatePriceManagerImpl implements RatePricesManager {
 
 	private final PricesService priceService;
 

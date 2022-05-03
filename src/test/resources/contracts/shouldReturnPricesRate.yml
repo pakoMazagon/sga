@@ -1,0 +1,9 @@
+description: yaml contract
+request:
+    method: GET
+    url: /prices?appDate=2020-06-14T10:00:00.000Z&brandId=1&productId=35455
+response:
+    status: 200
+    headers:
+        Content-Type: application/json
+    bodyFromFile: response/pricesRates.json

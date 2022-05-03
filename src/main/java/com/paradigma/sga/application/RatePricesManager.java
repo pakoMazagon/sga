@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import com.paradigma.sga.application.dto.PriceDTO;
 
-public interface RatePricesService {
+public interface RatePricesManager {
 
 	Optional<PriceDTO> findRatePriceByProductBrandAndDate(@NotNull @Valid Long productId, @NotNull @Valid Long brandId, LocalDateTime dateIn);
 

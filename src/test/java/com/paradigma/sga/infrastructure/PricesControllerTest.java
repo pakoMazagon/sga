@@ -16,7 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.paradigma.sga.application.RatePricesService;
+import com.paradigma.sga.application.RatePricesManager;
 import com.paradigma.sga.application.dto.BrandDTO;
 import com.paradigma.sga.application.dto.PriceDTO;
 import com.paradigma.sga.infrastructure.controller.PricesController;
@@ -28,7 +28,7 @@ public class PricesControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private RatePricesService ratePricesService;
+    private RatePricesManager ratePricesService;
     
     
     @Test
