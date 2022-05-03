@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * Error in the API
  */
 @ApiModel(description = "Error in the API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-03T07:56:27.244858800+02:00[Europe/Paris]")@lombok.Builder
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-03T12:11:46.146825400+02:00[Europe/Paris]")@lombok.Builder
 									@lombok.NoArgsConstructor @lombok.AllArgsConstructor
 
 public class ErrorResponseRDTO   {

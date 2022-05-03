@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.paradigma.sga.application.RatePricesService;
+import com.paradigma.sga.application.RatePricesManager;
 import com.paradigma.sga.application.dto.PriceDTO;
 import com.paradigma.sga.infrastructure.mapper.PriceInfraMapper;
 import com.paradigma.sga.infrastructure.mapper.PriceInfraMapperImpl;
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class PricesController implements PricesApi {
 
-	private final RatePricesService ratePriceService;
+	private final RatePricesManager ratePriceService;
 	
 	private final PriceInfraMapper mapper = Mappers.getMapper( PriceInfraMapperImpl.class );
 

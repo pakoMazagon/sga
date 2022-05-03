@@ -25,13 +25,13 @@ import com.paradigma.sga.domain.service.PricesService;
 import lombok.val;
 
 @ExtendWith(MockitoExtension.class)
-public class RatePricesServiceTest {
+public class RatePricesManagerTest {
 
 	@Mock
 	PricesService priceService;
 	
 	@InjectMocks
-	private RatePriceServiceImpl ratePriceService;
+	private RatePriceManagerImpl ratePriceManager;
 	
 	@Test
     void shouldReturnPriceMajorPriority() {
@@ -42,7 +42,7 @@ public class RatePricesServiceTest {
         listPrices.add(price2);        
         when(priceService.findByProductIdAndBrandIdAndStartDateBeforeAndEndDateAfter(35455L, 1L, LocalDateTime.parse("2020-06-14T16:00:00"))).thenReturn(listPrices);
         
-        Optional<PriceDTO> result = ratePriceService.findRatePriceByProductBrandAndDate(35455L, 1L, LocalDateTime.parse("2020-06-14T16:00:00"));
+        Optional<PriceDTO> result = ratePriceManager.findRatePriceByProductBrandAndDate(35455L, 1L, LocalDateTime.parse("2020-06-14T16:00:00"));
         
         val priceDTO = PriceDTO.builder().id(2L).brand(BrandDTO.builder().id(1L).description("ZARA").build()).startDate(LocalDateTime.parse("2020-06-14T15:00:00")).endDate(LocalDateTime.parse("2020-06-14T18:30:00")).priceList(2).productId(35455L).priority(1).price(25.45).curr("EUR").build();
         assertNotNull(result);
@@ -54,7 +54,7 @@ public class RatePricesServiceTest {
                 
         when(priceService.findByProductIdAndBrandIdAndStartDateBeforeAndEndDateAfter(35455L, 1L, LocalDateTime.parse("2022-06-14T16:00:00"))).thenReturn(new ArrayList<>());
         
-        Optional<PriceDTO> result = ratePriceService.findRatePriceByProductBrandAndDate(35455L, 1L, LocalDateTime.parse("2022-06-14T16:00:00"));
+        Optional<PriceDTO> result = ratePriceManager.findRatePriceByProductBrandAndDate(35455L, 1L, LocalDateTime.parse("2022-06-14T16:00:00"));
                 
         assertEquals(result, Optional.empty());
     }

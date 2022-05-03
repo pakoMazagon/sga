@@ -16,7 +16,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.paradigma.sga.application.RatePricesService;
+import com.paradigma.sga.application.RatePricesManager;
 import com.paradigma.sga.domain.repository.PricesRepository;
 import com.paradigma.sga.domain.service.PricesService;
 import com.paradigma.sga.infrastructure.openAPI.dto.PriceProductRDTO;
@@ -33,7 +33,7 @@ public class AppRatePricesFeature extends BaseTestcontainers {
 	public TestRestTemplate testRestTemplate;
 
 	@Autowired
-	RatePricesService ratePricesService;
+	RatePricesManager ratePricesService;
 
 	@Autowired
 	PricesService priceService;
